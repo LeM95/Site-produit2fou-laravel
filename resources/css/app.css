@@ -1,11 +1,262 @@
-@import 'tailwindcss';
+*{
+    margin: 0;
+    padding: 0;  
+    box-sizing: border-box
+}
+li {
+    list-style: none;
+    
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+     
+}
+.menu {
+    width: 100%;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.441);
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+}
+.menu .lien {
+    
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    
+}
+.menu .lien ul {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+}
+.menu .lien ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    transition: 1s;
+}
+#ici{
+    border-bottom: 5px solid #ffffff;
+    padding-bottom: 5px;
+}
+.menu .lien ul li i {
+    display: none;
+    
+}
+.menu .lien ul li a:hover {
+    color: #ffffff;
+    font-size: 23px;
+    transition: 1s;
+}
+.logo {
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: white;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 15px;
+    flex: 1;
+    position: relative; /* au-dessus du background */
+    z-index: 1;
+    font-family: Arial, sans-serif;
+    backdrop-filter: blur(5px); /* Applique un flou à l'arrière-plan */
+    -webkit-backdrop-filter: blur(5px);
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+
+}
+.buton{
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+.background-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /* pour garder les proportions et remplir l'écran */
+    z-index: -2;
+}
+
+/* Vidéo mobile cachée par défaut */
+.mobile-video {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .background-img {
+        background: none; /* supprime l'image */
+    }
+
+    .mobile-video {
+        display: block;
+
+
+    }
+    .logo {
+        display: none;
+    }
+    .menu {
+    position: fixed;       /* fixe en bas de l'écran */
+    bottom: 10px;          /* marge de 10px depuis le bas */
+    left: 50%;             /* pour centrer horizontalement */
+    transform: translateX(-50%); /* ajuste le centrage exact */
+    
+    background: rgba(0, 0, 0, 0.6); /* fond semi-transparent pour style appli */
+    border-radius: 20px;            /* coins arrondis */
+    display: flex;                   
+    z-index: 1000;              
+    width: calc(100% - 20px);
+     
+    transition: none;   
+    height: auto;         
+}
+
+/* Style des liens de navigation */
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* espace entre icône et texte */
+    
+}
+.menu .lien {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    justify-content: center;
+    padding: 20px 10px;
+}
+.menu .lien nav{
+    width: 100%;
+    
+}   
+.menu .lien ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 0px;
+    width: 100%;    
+}
+.menu .lien nav ul li a{
+    font-size: 14px;
+    transition: none;
+    
+}
+#ici{
+    border-bottom: none;
+    padding-bottom: 0px;
+}
+.menu .lien nav ul li a:hover{
+    font-size: 14px;
+    transition: none;
+    
+}
+.menu .lien nav ul li i{
+    display: inline-block;
+    margin: 20px;
+}
+.menu .lien nav ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+}
+a.btn {
+    display: inline-block;
+    margin: 10px 50px;
+    padding: 15px 30px;
+    background-color: #d8b505;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: background-color 0.3s;
+    font-size: 19px;
+    
+}
+.content h1{
+    font-size: 40px;
+    margin-bottom: 20px;
+
+}
+.content p{
+    font-size: 19px;
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+.content h3{
+    font-size: 30px;
+    
+}
+#produitss {
+    border-top-right-radius: 0px;
+   border-bottom-right-radius:0px ;
+}
+#Service {
+    border-top-left-radius: 0px;
+   border-bottom-left-radius:0px ;
+}
+.reveals {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.reveals.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section {
+    height: 80vh;
+    margin: 40px 0;
+    background: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
 }
