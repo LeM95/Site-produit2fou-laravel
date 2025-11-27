@@ -23,10 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-document.getElementById('produitss').addEventListener('click', () => {
-            window.location.href = "/produits";
-        });
+const btnProduits = document.getElementById('produitss');
+if (btnProduits) {
+    btnProduits.addEventListener('click', () => {
+        window.location.href = "/produits";
+    });
+}
 
-        document.getElementById('Service').addEventListener('click', () => {
-            window.location.href = "/services";
-        });
+const btnService = document.getElementById('Service');
+if (btnService) {
+    btnService.addEventListener('click', () => {
+        window.location.href = "/services";
+    });
+}

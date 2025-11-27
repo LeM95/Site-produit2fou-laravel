@@ -12,22 +12,26 @@ class ProduitsController extends Controller
         return view('produits', compact('produits'));
     }
 
-    public function ajouterProduit(Request $request)
-    {
-        // Validation simple
-        $request->validate([
-            'nom' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'prix' => 'required|numeric',
-        ]);
+   public function ajouterProduit(Request $request)
+{
+    $request->validate([
+        'nom' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'prix' => 'required|numeric',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+    ]);
 
-        // Création du produit
-        Produits::create([
-            'nom' => $request->nom,
-            'description' => $request->description,
-            'prix' => $request->prix
-        ]);
+    // Stockage de l'image dans storage/app/public/produits
+    $imagePath = $request->file('image')->store('produits', 'public');
 
-        return redirect()->route('produits.index')->with('success', 'Produit ajouté avec succès !');
-    }
+    // Création du produit
+    Produits::create([
+        'nom' => $request->nom,
+        'description' => $request->description,
+        'prix' => $request->prix,
+        'image' => $imagePath, // stocke le chemin relatif
+    ]);
+
+    return redirect()->route('produits.index')->with('success', 'Produit ajouté avec succès !');
+}
 }

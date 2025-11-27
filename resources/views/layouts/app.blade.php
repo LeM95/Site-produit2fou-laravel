@@ -33,7 +33,7 @@
     <main>
         @yield('content') <!-- Le contenu de chaque page sera injecté ici -->
         <!-- Image pour PC -->
-        <img src="img/pc-background.jpg" alt="Background PC" class="background-img">
+        <img src="img/pc-background.png" alt="Background PC" class="background-img">
 
         <!-- Vidéo pour mobile -->
         <video class="mobile-video" autoplay muted loop playsinline>
